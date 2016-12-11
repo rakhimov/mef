@@ -1,0 +1,17 @@
+importance =
+  element importance {
+    name?,
+    attribute description { text }?,
+    attribute basic-events { xsd:nonNegativeInteger }?,
+    importance-event*
+  }
+
+importance-event =
+  element basic-event {
+    name,
+    attribute DIF { xsd:double }?,
+    attribute MIF { xsd:double }?,
+    attribute CIF { xsd:double }?,
+    attribute RRW { xsd:double }?,
+    attribute RAW { xsd:double }?,
+  }

@@ -87,6 +87,7 @@ The following three categories are so frequent
 that is it worth to normalize the way they are stored into XML files.
 
 - Minimal cut sets (and prime implicants)
+- Importance factors
 - Statistical measures (with moments)
 - Curves
 
@@ -106,6 +107,26 @@ to carry the relevant information.
 .. literalinclude:: schema/sum_of_products.rnc
     :name: schema_sum_of_products
     :caption: The RNC schema for the XML representation of sums-of-products
+    :language: rnc
+
+Importance factors
+------------------
+
+Importance factors are typically computed for basic events
+with the same configurations as for probability analysis.
+The following importance factors are long-established and commonly calculated:
+
+    - Fussel-Vesely Diagnosis Importance Factor (DIF)
+    - Birnbaum Marginal Importance Factor (MIF)
+    - Critical Importance Factor (CIF)
+    - Risk Reduction Worth (RRW)
+    - Risk Achievement Worth (RAW)
+
+The definitions of these factors can be found in PSA/PRA literature.
+
+.. literalinclude:: schema/importance_factors.rnc
+    :name: schema_importance_factors
+    :caption: The RNC schema for the XML representation of importance factors
     :language: rnc
 
 Statistical measures

@@ -1,12 +1,15 @@
 Ai
+Birnbaum
 CCF
 Fi
+Fussel
 LAnguage
 Napierian
 PSA
 REgular
 Ri
 Schematron
+Vesely
 datatype
 datatypes
 formulae
