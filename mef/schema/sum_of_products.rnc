@@ -13,6 +13,13 @@ product =
     literal*
   }
 
-literal =
+literal = literal-event | element not { literal-event }
+
+literal-event =
   element basic-event { name }
-  | element not { element basic-event { name } }
+  | element ccf-event {
+      attribute ccf-group { name },
+      attribute order { xsd:positiveInteger },
+      attribute group-size { xsd:positiveInteger },
+      element basic-event { name }+
+    }
