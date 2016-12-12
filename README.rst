@@ -166,3 +166,25 @@ Git Resources and Best Practices
 - `On Commit Messages <http://who-t.blogspot.com/2009/12/on-commit-messages.html>`_
 - `Atomic Commit <https://en.wikipedia.org/wiki/Atomic_commit#Atomic_commit_convention>`_
 - `Branching Model <http://nvie.com/posts/a-successful-git-branching-model/>`_
+
+
+Contributor License Agreement
+=============================
+
+By contributing content to the Open-PSA Model Exchange Format
+(i.e., submitting a pull request for inclusion in this repository)
+you agree with the following terms.
+
+- You warrant that your material is original,
+  or you have the right to contribute it.
+
+- With respect to the material that you own,
+  you grant a worldwide non-exclusive irrevocable transferable royalty-free license
+  to your contributed material
+  to the Open-PSA Initiative
+  to display, reproduce, perform, distribute and create derivative works
+  of that material for commercial or non-commercial use.
+  With respect to any other material you contribute,
+  such material must be under a license sufficient to allow the Open-PSA Initiative
+  to display, reproduce, perform, distribute and create derivative works
+  of that material for commercial or non-commercial use.
