@@ -671,11 +671,11 @@ Histograms
     and the :math:`w_i`'s are non-negative weights for the intervals :math:`[b_{i-1}, b_i)`.
     The lower bound of the first interval :math:`b_0` is given apart.
 
-    The drawing of a value according to a histogram is a two-step process.
-    First, a value :math:`z` is drawn uniformly in the range :math:`[b_0, b_n]`.
-    Then, a value is drawn at random by means of the expression :math:`w_i`,
-    where :math:`i` is the index of the interval
-    such that :math:`b_{i-1} \leq x < b_i`.
+    The drawing of a value according to a histogram distribution is a two-step process.
+    First, the interval :math:`i` is drawn at random
+    from a discrete distribution with the corresponding weights :math:`w_i`'s;
+    then, a random value :math:`x` is drawn uniformly from the range :math:`[b_{i-1}, b_i)`.
+    The sampling of the intervals and random values must be independent.
 
     The probability density function of the histogram (or piece-wise constant) distribution:
 
