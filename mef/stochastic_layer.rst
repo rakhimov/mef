@@ -665,17 +665,17 @@ Beta Deviates
     The default value of the beta distribution is its mean, i.e., :math:`\alpha/(\alpha + \beta)`.
 
 Histograms
-    Histograms are lists of pairs :math:`(x_1, E_1), \ldots, (x_n, E_n)`,
+    Histograms are lists of pairs :math:`(x_1, w_1), \ldots, (x_n, w_n)`,
     where the :math:`x_i`'s are numbers
     such that :math:`x_i < x_{i+1} \text{ for } i=1, \ldots, n-1`
-    and the :math:`E_i`'s are expressions.
+    and the :math:`w_i`'s are weights.
 
     The :math:`x_i`'s represent upper bounds of successive intervals.
     The lower bound of the first interval :math:`x_0` is given apart.
 
     The drawing of a value according to a histogram is a two-step process.
     First, a value :math:`z` is drawn uniformly in the range :math:`[x_0, x_n]`.
-    Then, a value is drawn at random by means of the expression :math:`E_i`,
+    Then, a value is drawn at random by means of the expression :math:`w_i`,
     where :math:`i` is the index of the interval
     such that :math:`x_{i-1} < z \leq x_i`.
 
@@ -683,7 +683,7 @@ Histograms
 
     .. math::
 
-        \mathbf{E}(X) = \frac{1}{x_n - x_0} \times \sum_{i=1}^{n}(x_i - x_{i-1})\mathbf{E}(E_i)
+        E(x) = \dfrac{\sum_{i=1}^{n}\tfrac{1}{2}(x_i + x_{i-1}) \cdot w_i}{\sum_{i=1}^{n}w_i}
 
     Both Cumulative Distribution Functions
     and Density Probability Distributions can be translated into histograms.
