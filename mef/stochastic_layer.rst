@@ -696,32 +696,31 @@ Histograms
         E(x) = \dfrac{\sum_{i=1}^{n}\tfrac{1}{2}(b_i + b_{i-1}) \cdot w_i}{\sum_{i=1}^{n}w_i}
 
     Both Cumulative Distribution Functions
-    and Density Probability Distributions can be translated into histograms.
+    and Discrete Probability Distributions can be translated into histograms.
 
     A Cumulative Distribution Function is a list of pairs
-    :math:`(p_1, v_1), \ldots, (p_n, v_n)`,
+    :math:`(p_1, b_1), \ldots, (p_n, b_n)`,
     where the :math:`p_i`'s are
-    such that :math:`p_i < p_{i+1} \text{ for } i=1, \ldots, n \text{ and } p_n=1`.
+    such that :math:`p_i < p_{i+1} \text{ for } i=0, \ldots, n-1 \text{ and } p_n=1, p_0=0`.
     It differs from histograms in two ways.
-    First, :math:`X` axis values are normalized (to spread between 0 and 1);
+    First, :math:`Y` axis values are normalized (to spread between 0 and 1);
     second, they are presented in a cumulative way.
     The histogram that corresponds to a Cumulative Distribution Function
-    :math:`(p_1, v_1), \ldots, (p_n, v_n)`
-    is the list of pairs :math:`(b_1, v_1), \ldots, (b_n, v_n)`,
-    with the initial value
-    :math:`b_0 = 0, b_1 = p_1, \text{ and } b_i = p_i - p_{i-1} \text{ for all } i>1`.
+    :math:`(p_1, b_1), \ldots, (p_n, b_n)`
+    is the list of pairs :math:`(b_1, w_1), \ldots, (b_n, w_n)`,
+    where :math:`w_i = p_i - p_{i-1}`.
 
     A Discrete Probability Distribution is a list of pairs
     :math:`(d_1, m_1), \ldots, (d_n, m_n)`.
     The :math:`d_i`'s are probability densities.
-    However, they could be any kind of values.
+    However, they could be any kind of non-negative values.
     The :math:`m_i`'s are midpoints of intervals
-    and are such that :math:`m_1 < m_2 < \ldots < m_n < 1`.
+    and are such that :math:`0 < m_1 < m_2 < \ldots < m_n`.
     The histogram that corresponds to a Discrete Probability Distribution
     :math:`(d_1, m_1), \ldots, (d_n, m_n)`
     is the list of pairs :math:`(b_1, d_1), \ldots, (b_n, d_n)`,
-    with the initial value
-    :math:`b_0 = 0, b_1 = 2m_1, \text{ and } b_i = b_{i-1} + 2(m_i - b_{i-1})`.
+    with the initial boundary :math:`b_0 = 0`,
+    :math:`b_i = b_{i-1} + 2(m_i - b_{i-1})`.
 
 
 XML Representation
