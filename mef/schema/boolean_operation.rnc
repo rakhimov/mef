@@ -3,7 +3,7 @@ Boolean-operation =
   | element and { expression+ }
   | element or { expression+ }
   | element eq { expression, expression }
-  | element df { expression, expression }
+  | element neq { expression, expression }
   | element lt { expression, expression }
   | element gt { expression, expression }
   | element leq { expression, expression }
