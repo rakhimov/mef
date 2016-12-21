@@ -665,25 +665,25 @@ Beta Deviates
     The default value of the beta distribution is its mean, i.e., :math:`\alpha/(\alpha + \beta)`.
 
 Histograms
-    Histograms are lists of pairs :math:`(x_1, w_1), \ldots, (x_n, w_n)`,
-    where the :math:`x_i`'s are numbers
-    such that :math:`x_i < x_{i+1} \text{ for } i=1, \ldots, n-1`
+    Histograms are lists of pairs :math:`(b_1, w_1), \ldots, (b_n, w_n)`,
+    where the :math:`b_i`'s are numbers
+    such that :math:`b_i < b_{i+1} \text{ for } i=1, \ldots, n-1`
     and the :math:`w_i`'s are weights.
 
-    The :math:`x_i`'s represent upper bounds of successive intervals.
-    The lower bound of the first interval :math:`x_0` is given apart.
+    The :math:`b_i`'s represent upper bounds of successive intervals.
+    The lower bound of the first interval :math:`b_0` is given apart.
 
     The drawing of a value according to a histogram is a two-step process.
-    First, a value :math:`z` is drawn uniformly in the range :math:`[x_0, x_n]`.
+    First, a value :math:`z` is drawn uniformly in the range :math:`[b_0, b_n]`.
     Then, a value is drawn at random by means of the expression :math:`w_i`,
     where :math:`i` is the index of the interval
-    such that :math:`x_{i-1} < z \leq x_i`.
+    such that :math:`b_{i-1} < z \leq b_i`.
 
     By default, the value of a histogram is its mean, i.e.,
 
     .. math::
 
-        E(x) = \dfrac{\sum_{i=1}^{n}\tfrac{1}{2}(x_i + x_{i-1}) \cdot w_i}{\sum_{i=1}^{n}w_i}
+        E(x) = \dfrac{\sum_{i=1}^{n}\tfrac{1}{2}(b_i + b_{i-1}) \cdot w_i}{\sum_{i=1}^{n}w_i}
 
     Both Cumulative Distribution Functions
     and Density Probability Distributions can be translated into histograms.
@@ -697,9 +697,9 @@ Histograms
     second, they are presented in a cumulative way.
     The histogram that corresponds to a Cumulative Distribution Function
     :math:`(p_1, v_1), \ldots, (p_n, v_n)`
-    is the list of pairs :math:`(x_1, v_1), \ldots, (x_n, v_n)`,
+    is the list of pairs :math:`(b_1, v_1), \ldots, (b_n, v_n)`,
     with the initial value
-    :math:`x_0 = 0, x_1 = p_1, \text{ and } x_i = p_i - p_{i-1} \text{ for all } i>1`.
+    :math:`b_0 = 0, b_1 = p_1, \text{ and } b_i = p_i - p_{i-1} \text{ for all } i>1`.
 
     A Discrete Probability Distribution is a list of pairs
     :math:`(d_1, m_1), \ldots, (d_n, m_n)`.
@@ -709,9 +709,9 @@ Histograms
     and are such that :math:`m_1 < m_2 < \ldots < m_n < 1`.
     The histogram that corresponds to a Discrete Probability Distribution
     :math:`(d_1, m_1), \ldots, (d_n, m_n)`
-    is the list of pairs :math:`(x_1, d_1), \ldots, (x_n, d_n)`,
+    is the list of pairs :math:`(b_1, d_1), \ldots, (b_n, d_n)`,
     with the initial value
-    :math:`x_0 = 0, x_1 = 2m_1, \text{ and } x_i = x_{i-1} + 2(m_i - x_{i-1})`.
+    :math:`b_0 = 0, b_1 = 2m_1, \text{ and } b_i = b_{i-1} + 2(m_i - b_{i-1})`.
 
 
 XML Representation
