@@ -554,7 +554,7 @@ As for arithmetic operators and built-ins, this list can be extended on demand.
     +-----------------------+------------+-------------------------------------------------------------------------------------------------------------+
     | **beta-deviate**      | 2          | beta distributions defined by two shape parameters :math:`\alpha` and :math:`\beta`                         |
     +-----------------------+------------+-------------------------------------------------------------------------------------------------------------+
-    | **histograms**        | any        | discrete distributions defined by means of a list of pairs                                                  |
+    | **histogram**         | >1         | piecewise-constant distributions defined by means of a list of pairs                                        |
     +-----------------------+------------+-------------------------------------------------------------------------------------------------------------+
 
 Uniform Deviates
@@ -666,18 +666,16 @@ Beta Deviates
 
 Histograms
     Histograms are lists of pairs :math:`(b_1, w_1), \ldots, (b_n, w_n)`,
-    where the :math:`b_i`'s are numbers
-    such that :math:`b_i < b_{i+1} \text{ for } i=1, \ldots, n-1`
-    and the :math:`w_i`'s are weights.
-
-    The :math:`b_i`'s represent upper bounds of successive intervals.
+    where the :math:`b_i`'s are upper bounds of successive, contiguous intervals
+    such that :math:`b_i < b_{i+1} \text{ for } i=0, \ldots, n-1`,
+    and the :math:`w_i`'s are non-negative weights for the intervals :math:`[b_{i-1}, b_i)`.
     The lower bound of the first interval :math:`b_0` is given apart.
 
     The drawing of a value according to a histogram is a two-step process.
     First, a value :math:`z` is drawn uniformly in the range :math:`[b_0, b_n]`.
     Then, a value is drawn at random by means of the expression :math:`w_i`,
     where :math:`i` is the index of the interval
-    such that :math:`b_{i-1} < z \leq b_i`.
+    such that :math:`b_{i-1} \leq x < b_i`.
 
     The probability density function of the histogram (or piece-wise constant) distribution:
 
@@ -689,7 +687,7 @@ Histograms
 
     .. math::
 
-        b_{k - 1} < x \leq b_k \quad \forall k \in \mathbb{Z} : 1 \leq k \leq n
+        b_{k - 1} \leq x < b_k \quad \forall k \in \mathbb{Z} : 1 \leq k \leq n
 
     By default, the value of the histogram distribution is its mean, i.e.,
 
