@@ -679,7 +679,19 @@ Histograms
     where :math:`i` is the index of the interval
     such that :math:`b_{i-1} < z \leq b_i`.
 
-    By default, the value of a histogram is its mean, i.e.,
+    The probability density function of the histogram (or piece-wise constant) distribution:
+
+    .. math::
+
+        f(x;b_0,\ldots,b_n, w_1,\ldots,w_n) = \dfrac{w_k}{(b_k - b_{k-1})\cdot\sum_{i=1}^{n}w_i}
+
+    Where :math:`k` is such that
+
+    .. math::
+
+        b_{k - 1} < x \leq b_k \quad \forall k \in \mathbb{Z} : 1 \leq k \leq n
+
+    By default, the value of the histogram distribution is its mean, i.e.,
 
     .. math::
 
