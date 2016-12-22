@@ -720,6 +720,7 @@ Piecewise-Linear Distributions
     where the :math:`b_i`'s are bounds of successive, contiguous intervals
     such that :math:`b_i < b_{i+1}` for :math:`i = 0, \dots, n-1`,
     and the :math:`w_i`'s are non-negative weights of corresponding interval bounds :math:`b_i`.
+    A piecewise-linear distribution can approximate a continuous distribution function [#HC94]_.
 
     The distribution is defined by the following probability density function:
 
@@ -746,6 +747,11 @@ Piecewise-Linear Distributions
 
         E(x) = \frac{1}{6S}
             \sum_{i=1}^{n}(b_i - b_{i-1})[w_i(2b_i + b_{i-1}) + w_{i-1}(b_i + 2b_{i-1})]
+
+
+.. [#HC94] B. Hamann and J. L. Chen,
+           "Data point selection for piecewise linear curve approximation,"
+           Computer Aided Geometric Design, vol. 11, no. 3, pp. 289-301, 1994.
 
 
 XML Representation
