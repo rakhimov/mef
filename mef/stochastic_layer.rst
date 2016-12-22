@@ -556,6 +556,8 @@ As for arithmetic operators and built-ins, this list can be extended on demand.
     +-----------------------+------------+-------------------------------------------------------------------------------------------------------------+
     | **histograms**        | any        | discrete distributions defined by means of a list of pairs                                                  |
     +-----------------------+------------+-------------------------------------------------------------------------------------------------------------+
+    | **piecewise-linear**  | >1         | piecewise-linear distributions defined by means of a list of pairs                                          |
+    +-----------------------+------------+-------------------------------------------------------------------------------------------------------------+
 
 Uniform Deviates
     These primitives describe uniform distributions in a given range
@@ -712,6 +714,38 @@ Histograms
     is the list of pairs :math:`(x_1, d_1), \ldots, (x_n, d_n)`,
     with the initial value
     :math:`x_0 = 0, x_1 = 2m_1, \text{ and } x_i = x_{i-1} + 2(m_i - x_{i-1})`.
+
+Piecewise-Linear Distributions
+    Piecewise-linear distributions are lists of pairs :math:`(b_0, w_0), \ldots, (b_n, w_n)`,
+    where the :math:`b_i`'s are bounds of successive, contiguous intervals
+    such that :math:`b_i < b_{i+1}` for :math:`i = 0, \dots, n-1`,
+    and the :math:`w_i`'s are non-negative weights of corresponding interval bounds :math:`b_i`.
+
+    The distribution is defined by the following probability density function:
+
+    .. math::
+
+        f(x;b_0,\ldots,b_n, w_0,\ldots,w_n) = \frac{1}{S}
+            \left[\frac{w_k - w_{k-1}}{b_k - b_{k-1}}(x - b_{k-1}) + w_{k-1}\right]
+
+    Where :math:`k` is such that:
+
+    .. math::
+
+        b_{k-1} \leq x < b_k \quad \forall k \in \mathbb{Z} : 1 \leq k \leq n
+
+    :math:`S` is the total weight of the intervals for normalization:
+
+    .. math::
+
+        S = \sum_{i=1}^{n}\tfrac{1}{2}(w_i + w_{i-1})(b_i - b_{i-1})
+
+    The expected value of the piecewise-linear distribution is as follows.
+
+    .. math::
+
+        E(x) = \frac{1}{6S}
+            \sum_{i=1}^{n}(b_i - b_{i-1})[w_i(2b_i + b_{i-1}) + w_{i-1}(b_i + 2b_{i-1})]
 
 
 XML Representation
