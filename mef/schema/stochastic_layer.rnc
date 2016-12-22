@@ -18,5 +18,6 @@ random-deviate =
   | gamma-deviate
   | beta-deviate
   | histogram
+  | triangle
 
 test-event = test-initiating-event | test-functional-event

@@ -556,6 +556,8 @@ As for arithmetic operators and built-ins, this list can be extended on demand.
     +-----------------------+------------+-------------------------------------------------------------------------------------------------------------+
     | **histograms**        | any        | discrete distributions defined by means of a list of pairs                                                  |
     +-----------------------+------------+-------------------------------------------------------------------------------------------------------------+
+    | **triangle**          | 3          | triangle (or triangular) distribution defined by its two limits and mode                                    |
+    +-----------------------+------------+-------------------------------------------------------------------------------------------------------------+
 
 Uniform Deviates
     These primitives describe uniform distributions in a given range
@@ -712,6 +714,19 @@ Histograms
     is the list of pairs :math:`(x_1, d_1), \ldots, (x_n, d_n)`,
     with the initial value
     :math:`x_0 = 0, x_1 = 2m_1, \text{ and } x_i = x_{i-1} + 2(m_i - x_{i-1})`.
+
+Triangle Distributions
+    A triangle (or triangular) distribution is a special case of a piecewise-linear distribution
+    defined only by three bounds :math:`(a, b, c)`,
+    a lower limit, mode, and upper limit respectively.
+    The lower and upper limit weights are 0,
+    and the most probable value :math:`b` has :math:`\frac{2}{c - a}` weight.
+
+    The expected value of a triangle distribution is the arithmetic mean of its bounds.
+
+    .. math::
+
+        E(x) = \frac{a + b + c}{3}
 
 
 XML Representation

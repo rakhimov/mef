@@ -12,3 +12,5 @@ beta-deviate = element beta-deviate { expression, expression }
 histogram = element histogram { expression, bin+ }
 
 bin = element bin { expression, expression }
+
+triangle = element triangle { expression, expression, expression }
