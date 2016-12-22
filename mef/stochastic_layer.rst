@@ -533,7 +533,7 @@ When used to perform Monte-Carlo simulations,
 they return a number drawn at pseudo-random according to their type.
 The Model Exchange Format includes two types of random deviates:
 built-in deviates like uniform, normal or lognormal,
-and histograms that are user defined discrete distributions.
+and user defined discrete distributions like histograms.
 A preliminary list of distributions is summarized in :numref:`table_random_deviates`.
 As for arithmetic operators and built-ins, this list can be extended on demand.
 
@@ -555,6 +555,8 @@ As for arithmetic operators and built-ins, this list can be extended on demand.
     | **beta-deviate**      | 2          | beta distributions defined by two shape parameters :math:`\alpha` and :math:`\beta`                         |
     +-----------------------+------------+-------------------------------------------------------------------------------------------------------------+
     | **histograms**        | any        | discrete distributions defined by means of a list of pairs                                                  |
+    +-----------------------+------------+-------------------------------------------------------------------------------------------------------------+
+    | **discrete**          | >1         | discrete distributions defined by means of a list of pairs                                                  |
     +-----------------------+------------+-------------------------------------------------------------------------------------------------------------+
 
 Uniform Deviates
@@ -685,9 +687,7 @@ Histograms
 
         \mathbf{E}(X) = \frac{1}{x_n - x_0} \times \sum_{i=1}^{n}(x_i - x_{i-1})\mathbf{E}(E_i)
 
-    Both Cumulative Distribution Functions
-    and Density Probability Distributions can be translated into histograms.
-
+    Cumulative Distribution Functions can be translated into histograms.
     A Cumulative Distribution Function is a list of pairs
     :math:`(p_1, v_1), \ldots, (p_n, v_n)`,
     where the :math:`p_i`'s are
@@ -701,17 +701,31 @@ Histograms
     with the initial value
     :math:`x_0 = 0, x_1 = p_1, \text{ and } x_i = p_i - p_{i-1} \text{ for all } i>1`.
 
-    A Discrete Probability Distribution is a list of pairs
-    :math:`(d_1, m_1), \ldots, (d_n, m_n)`.
-    The :math:`d_i`'s are probability densities.
-    However, they could be any kind of values.
-    The :math:`m_i`'s are midpoints of intervals
-    and are such that :math:`m_1 < m_2 < \ldots < m_n < 1`.
-    The histogram that corresponds to a Discrete Probability Distribution
-    :math:`(d_1, m_1), \ldots, (d_n, m_n)`
-    is the list of pairs :math:`(x_1, d_1), \ldots, (x_n, d_n)`,
-    with the initial value
-    :math:`x_0 = 0, x_1 = 2m_1, \text{ and } x_i = x_{i-1} + 2(m_i - x_{i-1})`.
+Discrete Distribution
+    A discrete distribution is a statistical distribution
+    whose variables can only take discrete values.
+    It is defined by a list of pairs
+    :math:`(a_1, w_1), \ldots, (a_n, w_n)`.
+    The :math:`a_i`'s are the values of the distribution,
+    and the :math:`w_i` are their respective non-negative weights.
+
+    The probability density function of the discrete distribution:
+
+    .. math::
+
+        f(x;w_1,\ldots,w_n) = \frac{w_k}{\sum_{i=1}^{n}w_i}
+
+    Where :math:`k` is such that
+
+    .. math::
+
+        x = a_k \quad \forall k \in \mathbb{Z} : 1 \leq k \leq n
+
+    The default value is the expected value of the distribution.
+
+    .. math::
+
+        E(x) = \dfrac{\sum_{i=1}^{n}a_i \cdot w_i}{\sum_{i=1}^{n}w_i}
 
 
 XML Representation
