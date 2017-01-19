@@ -24,6 +24,7 @@ statistical-measure =
       }
     }?,
     quantiles?,
+    histogram?,
   }
 
 quantiles =
@@ -34,8 +35,16 @@ quantiles =
 
 quantile = element quantile { bin-data }
 
+histogram =
+  element histogram {
+    attribute number { xsd:positiveInteger },
+    bin+
+  }
+
+bin = element bin { bin-data }
+
 bin-data =
   attribute number { xsd:positiveInteger },
-  attribute mean { xsd:double }?,
+  attribute value { xsd:double }?,
   attribute lower-bound { xsd:double }?,
   attribute upper-bound { xsd:double }?
