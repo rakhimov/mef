@@ -9,6 +9,8 @@ importance =
 importance-event =
   element basic-event {
     name,
+    attribute occurrence { xsd:nonNegativeInteger }?,
+    attribute probability { xsd:double }?,
     attribute DIF { xsd:double }?,
     attribute MIF { xsd:double }?,
     attribute CIF { xsd:double }?,

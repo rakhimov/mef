@@ -124,6 +124,11 @@ The following importance factors are long-established and commonly calculated:
 
 The definitions of these factors can be found in PSA/PRA literature.
 
+In addition to the importance factors,
+this report section may contain
+the evaluated probability of an event and
+the number of products it occurs in.
+
 .. literalinclude:: schema/importance_factors.rnc
     :name: schema_importance_factors
     :caption: The RNC schema for the XML representation of importance factors
