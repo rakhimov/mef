@@ -5,9 +5,9 @@ curve =
     (attribute X-title { xsd:string },
      attribute Y-title { xsd:string },
      attribute Z-title { xsd:string }?)?,
-    (attribute X-unit { unit },
-     attribute Y-unit { unit },
-     attribute Z-unit { unit }?)?,
+    attribute X-unit { unit }?,
+    attribute Y-unit { unit }?,
+    attribute Z-unit { unit }?,
     element point {
       attribute X { xsd:double },
       attribute Y { xsd:double },
@@ -15,4 +15,4 @@ curve =
     }*
   }
 
-unit = "seconds" | "hours"
+unit = "seconds" | "hours" | "seconds-1" | "hours-1" | "years" | "years-1"
