@@ -7,8 +7,7 @@ fault-tree-definition =
      | CCF-group-definition
      | event-definition
      | component-definition
-     | parameter-definition
-     | include-directive)*
+     | parameter-definition)*
   }
 
 component-definition =
@@ -21,8 +20,7 @@ component-definition =
      | CCF-group-definition
      | event-definition
      | component-definition
-     | parameter-definition
-     | include-directive)*
+     | parameter-definition)*
   }
 
 role = attribute role { "private" | "public" }
@@ -31,8 +29,7 @@ model-data =
   element model-data {
     (house-event-definition
      | basic-event-definition
-     | parameter-definition
-     | include-directive)*
+     | parameter-definition)*
   }
 
 event-definition =

@@ -60,43 +60,22 @@ For even medium size PSA models this assumption not compatible with Quality Cont
 Moreover, such a monolithic organization of data would be very hard to manage
 when several persons work together on the same model.
 
-A first way to split the model into several files is to use the XML notion of entities:
-in any XML file, it is possible to declare file entities in the preamble,
-and to include them in the body of the document.
-This mechanism is exemplified below.
-
-.. code-block:: xml
-
-    <?xml version="1.0" ?>
-
-    <!DOCTYPE SMRF [
-    <!ENTITY file1 SYSTEM "file1.xml">
-    <!ENTITY file2 SYSTEM "file2.xml">
-    ]>
-    <smrf>
-        ...
-        &file1;
-        ...
-        &file2;
-        ...
-    </smrf>
-
-This mechanism, however, has the drawback
-that XML tools have to actually include the files into the document,
-hence, making its manipulation heavier.
-
-The Model Exchange Format proposes another simple mechanism to achieve the same goal:
-the tag include.
+The Model Exchange Format utilizes XInclude_,
+general purpose XML Include (W3C Candidate Recommendation),
+which allows splitting the model in flexible and unconstrained ways.
 This tag can be inserted at any place in a document.
-Its effect is to load the content of the given file into the model.
+Its effect is to include the content of the given file into the model.
 
 .. code-block:: xml
 
-    <opsa-mef>
+    <opsa-mef xmlns:xi="http://www.w3.org/2001/XInclude">
         ...
-        <include file="basic-events.xml"/>
+        <xi:include href="basic-events.xml"/>
         ...
     </opsa-mef>
+
+.. _XInclude: https://www.w3.org/TR/xinclude/
+
 
 Organization of a Model
 =======================

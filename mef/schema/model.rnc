@@ -13,6 +13,5 @@ model =
      | initiating-event-definition
      | fault-tree-definition
      | substitution-definition
-     | CCF-group-definition
-     | include-directive)*
+     | CCF-group-definition)*
   }
