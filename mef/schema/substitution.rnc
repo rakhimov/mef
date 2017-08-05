@@ -6,5 +6,5 @@ substitution-definition =
     attributes?,
     element hypothesis { formula },
     element source { basic-event+ }?,
-    element target { basic-event+ | Boolean-constant }
+    element target { basic-event | Boolean-constant }
   }
