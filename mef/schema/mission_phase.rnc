@@ -9,5 +9,5 @@ phase-definition =
     attribute time-fraction { xsd:double },
     label?,
     attributes?,
-    instruction*
+    (set-house-event | set-parameter)*
   }
