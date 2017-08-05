@@ -1,7 +1,7 @@
 substitution-definition =
   element define-substitution {
     name?,
-    attribute type { xsd:string }?,
+    attribute type { "delete-terms" | "recovery-rule" | "exchange-event" }?,
     label?,
     attributes?,
     element hypothesis { formula },
