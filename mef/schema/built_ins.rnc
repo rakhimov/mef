@@ -7,3 +7,28 @@ Weibull = element Weibull { expression, expression, expression, expression }
 periodic-test = element periodic-test { expression+ }
 
 extern-function = element extern-function { name, expression* }
+
+extern-library-definition =
+  element define-extern-library {
+    name,
+    attribute path { xsd:anyURI },
+    attribute system { xsd:boolean }?,
+    attribute decorate { xsd:boolean }?,
+    label?,
+    attributes?
+  }
+
+extern-function-definition =
+  element define-extern-function {
+    name,
+    attribute symbol { Identifier },
+    attribute library { Identifier },
+    label?,
+    attributes?,
+    extern-function-return-type,
+    extern-function-parameter-type*
+  }
+
+extern-function-return-type = extern-function-parameter-type
+
+extern-function-parameter-type = element int { empty } | element double { empty }

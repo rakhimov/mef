@@ -4,7 +4,7 @@ model =
     label?,
     attributes?,
     (model-data
-     |event-tree-definition
+     | event-tree-definition
      | alignment-definition
      | consequence-group-definition
      | consequence-definition
@@ -14,5 +14,7 @@ model =
      | fault-tree-definition
      | substitution-definition
      | CCF-group-definition
+     | extern-library-definition
+     | extern-function-definition
      | include-directive)*
   }
