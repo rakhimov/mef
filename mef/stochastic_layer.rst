@@ -451,6 +451,74 @@ Extern functions
     This is probably the best way to handle communication between tools,
     but it would be far too complex to embed XML into stochastic expressions.
 
+    The Model Exchange Format provides a format based on
+    dynamic libraries and C function interfaces.
+    This is a flexible cross-platform way to use plugins and other modules across tools.
+    The C programming language interface is de-facto lingua-franca
+    for many modern programming languages, allowing simple communication across libraries.
+
+    Library paths can either be absolute or relative.
+    Relative paths are resolved with respect to the input file parent directory.
+    Libraries with the "system" flag are searched for
+    in platform-specific library directories before the local directory.
+    The search for system libraries only happens
+    if the library path does not have a parent directory.
+    The "decorate" flag makes a library path portable across platforms
+    by automatically attaching the platform-specific library prefix and suffix upon lookup.
+
+    Since extern functions are called only within Expression contexts,
+    the function interface is constrained to work with numeric types only (``double``, ``int``).
+    For example, there is no need for ``void`` return-type functions or functions accepting strings.
+    The number of function parameters cannot be unbounded for extern functions;
+    thus, the maximum number of function parameters is 5 (126 possible function-interfaces).
+
+    Extern-functions in libraries are expected to behave well for analysis:
+
+        * ABI compatible with the application
+        * Referentially transparent (pure, deterministic)
+        * Thread-safe
+        * Optimized
+
+    This "flexible" approach for extern-functions is not without drawbacks.
+    If not handled with care,
+    the extern-function interface can load arbitrary libraries and execute arbitrary code,
+    which may be a security issue.
+    For example, the following "code" will print "E" character to the standard output
+    every time "Evil" parameter evaluates (on GNU/Linux platforms).
+
+    .. code-block:: xml
+
+        <?xml version="1.0"?>
+        <opsa-mef>
+            <define-extern-library name="libc" path="libc.so.6" system="true"/>
+            <define-extern-function name="putc" symbol="putchar" library="libc">
+                <int/>
+                <int/>
+            </define-extern-function>
+            <model-data>
+                <define-parameter name="Evil">
+                    <extern-function name="putc">
+                        <int value="69"/>
+                    </extern-function>
+                </define-parameter>
+            </model-data>
+        </opsa-mef>
+
+    The analysis tool implementers are advised to make the MEF extern-function
+    an opt-in feature (disabled by default)
+    and process only trusted input and libraries
+    (whitelist, checksums, signatures, immutable ownership by root, etc.).
+
+    Another subtle issue arises
+    when the function interface defined in the MEF XML input
+    does not match the function signature provided by the library.
+    This leads to undefined behavior and impossible to detect or validate.
+    Failures may range from non-deterministic discrepancies in analysis
+    to program crashes (denial of service).
+    The solution would be to acquire a list of function signatures
+    for validation purposes from the library itself (e.g., header files);
+    however, such specification is beyond the Model Exchange Format.
+
 
 .. tabularcolumns:: |l|l|L|
 .. table:: Built-ins, their number of arguments, and their semantics

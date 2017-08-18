@@ -9,9 +9,13 @@ Ri
 Schematron
 datatype
 datatypes
+de
 formulae
+franca
 iff
 lognormal
 nand
+plugins
 schemas
+whitelist
 xor
