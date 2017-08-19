@@ -38,7 +38,5 @@ basic-event = element basic-event { reference }
 
 Boolean-constant =
   element constant {
-    attribute value { Boolean-value }
+    attribute value { xsd:boolean }
   }
-
-Boolean-value = "true" | "false"
