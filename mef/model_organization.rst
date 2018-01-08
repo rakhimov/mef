@@ -118,3 +118,17 @@ The Model Exchange Format introduces also eighteen constructs.
     :name: schema_model
     :caption: The RNC schema for the XML representation of a model
     :language: rnc
+
+The Model Exchange Format provides a version tag for the root XML element.
+This optional tag indicates the version of the MEF standard
+required by the model.
+To indicate the version of the model itself,
+one can use the extensible attribute system provided by the MEF.
+
+.. code-block:: xml
+
+    <opsa-mef version="2.0d">  <!-- The MEF standard version to process this file -->
+        <attributes>
+            <attribute name="version" value="1.0"/>  <!-- The model version -->
+        </attributes>
+    </opsa-mef>

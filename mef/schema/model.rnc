@@ -1,5 +1,6 @@
 model =
   element opsa-mef {
+    attribute version { xsd:string }?,
     name?,
     label?,
     attributes?,
