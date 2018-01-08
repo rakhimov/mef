@@ -60,8 +60,7 @@ This description allows loops (in the sense defined above),
 multiple definitions and trees with multiple top events.
 The presence of loops must be detected by a specific check procedure.
 If a variable or a parameter is declared more than once,
-tools should emit a warning
-and consider only the last definition as the good one (the previous ones are just ignored).
+tools should emit an error (consistent with the declarative nature of the language).
 In some circumstances, it is of interest to define several fault trees at once
 by means of a unique set of declarations.
 Therefore, the presence of multiple top events should not be prevented.
