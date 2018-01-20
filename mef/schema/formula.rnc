@@ -4,8 +4,8 @@ formula =
   | element and { formula+ }
   | element or { formula+ }
   | element not { formula }
-  | element xor { formula+ }
-  | element iff { formula+ }
+  | element xor { formula, formula }
+  | element iff { formula, formula }
   | element nand { formula+ }
   | element nor { formula+ }
   | element atleast {
