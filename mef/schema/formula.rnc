@@ -1,23 +1,26 @@
 formula =
-  event
-  | Boolean-constant
-  | element and { formula+ }
-  | element or { formula+ }
-  | element not { formula }
-  | element xor { formula+ }
-  | element iff { formula+ }
-  | element nand { formula+ }
-  | element nor { formula+ }
+  argument
+  | element and { argument+ }
+  | element or { argument+ }
+  | element xor { argument+ }
+  | element iff { argument+ }
+  | element nand { argument+ }
+  | element nor { argument+ }
   | element atleast {
       attribute min { xsd:positiveInteger },
-      formula+
+      argument+
     }
   | element cardinality {
       attribute min { xsd:nonNegativeInteger },
       attribute max { xsd:nonNegativeInteger },
-      formula+
+      argument+
     }
-  | element imply { formula, formula }
+  | element imply { argument, argument }
+
+argument =
+  event
+  | element not { event }
+  | Boolean-constant
 
 event =
   element event {
